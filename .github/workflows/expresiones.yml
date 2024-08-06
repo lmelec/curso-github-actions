@@ -29,4 +29,5 @@ jobs:
 
       - name: Ejecucion Manual
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: echo 'Esta fue una ejecucion manual'
+        run: echo 'Esta fue una ejecucion manual'; echo "${{github.actor}}"
+

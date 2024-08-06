@@ -32,5 +32,5 @@ jobs:
         run: echo 'Esta fue una ejecucion manual'
         
       - name: Nombre del Actor
-        run: echo "Actor: ${{github.actor}}"
+        run: echo 'Actor = ${{ github.actor }}'
 

@@ -6,7 +6,29 @@ on:
     branches: 
       - "aprendiendo-github-actions"
     paths:
-      - "**.py" 
+      - "**.py"
+
+  workflow_dispatch:
+		inputs:
+			alerta:
+				description : 'Nivel'
+				required : true
+				default : medio
+				type : choice
+				option :
+				- bajo
+				- medio
+				- alto
+
+			tags:
+				description : 'Opcional'
+				required : false
+				type : boolean
+
+			enviroment:
+				description : 'Objetivo'
+				required : true
+				type : string
 
 jobs:
   build:

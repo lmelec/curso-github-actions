@@ -4,7 +4,7 @@ run-name: Pipeline Triggers
 on:
   push:
     branches: 
-      - "main"
+      - "aprendiendo-github-actions"
     paths:
       - "**.py" 
 

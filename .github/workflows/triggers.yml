@@ -1,0 +1,27 @@
+name: triggers
+run-name: Pipeline Triggers
+
+on:
+  push:
+    branches: 
+      - "aprendiendo-github-actions"
+    paths:
+      - "**.py"
+      
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Script
+        run: python main.py

@@ -1,12 +1,11 @@
 name: triggers
 run-name: Pipeline Triggers
 
-# Controls when the workflow will run
 on:
   push:
     branches: 
       - "main"
-  path:
+    paths:
       - "**.py" 
 
 jobs:

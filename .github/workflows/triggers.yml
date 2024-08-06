@@ -1,0 +1,20 @@
+name: triggers
+run-name: Pipeline Triggers
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: 
+      - "main"
+  path:
+      - "**.py" 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Script
+        run: python main.py

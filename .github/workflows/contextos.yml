@@ -26,6 +26,8 @@ jobs:
         run: python main.py
         
   print:
+    runs-on: ubuntu-latest
+    steps:
       - name: Imprimir Variables
         run: echo 'Actor = {{env.actor}} \n Rama = {{env.ref}} \n SHA = {{env.sha}}'
 

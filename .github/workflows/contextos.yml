@@ -31,4 +31,4 @@ jobs:
         run: echo 'Actor = {{env.actor}} \n Rama = {{env.ref}} \n SHA = {{env.sha}}'
 
       - name: Imprimir Entradas
-        run: echo 'Razones de Ejecucion = {{input.reason}}'
+        run: echo 'Razones de Ejecucion = {{inputs.reason}}'

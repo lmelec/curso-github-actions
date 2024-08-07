@@ -2,17 +2,16 @@ name: contexto
 run-name: Pipeline Contexto
 
 on:
-  push:
-    workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Razones de la Ejecucion'     
-        required: true
-        default: 'warning'
+  workflow_dispatch:
+   inputs:
+     reason:
+      description: 'Razones de la Ejecucion'     
+      required: true
+      default: 'warning'
 env:
-   actor = ${{github.actor}}
-   rama = ${{github.ref}} 
-   sha = ${{github.sha}}
+   actor: ${{github.actor}}
+   rama: ${{github.ref}} 
+   sha: ${{github.sha}}
 
 jobs:
 

@@ -9,12 +9,12 @@ on:
         description: 'Razones de la Ejecucion'     
         required: true
         default: 'warning'
+env:
+   actor = ${{github.actor}}
+   rama = ${{github.ref}} 
+   sha = ${{github.sha}}
 
 jobs:
-  env:
-      - actor = ${{github.actor}}
-      - rama = ${{github.ref}} 
-      - sha = ${{github.sha}}
 
   build:
     runs-on: ubuntu-latest

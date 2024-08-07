@@ -1,0 +1,36 @@
+name: Expression
+run-name: Pipeline with Expression
+
+on:
+  push:
+    branches: 
+      - "main"
+      - "aprendiendo-github-actions"
+    paths:
+      - "**.py"
+      
+  workflow_dispatch:
+    inputs:
+      Reason:
+        description: 'Reason Running '     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Script
+        run: python main.py
+
+      - name: Ejecucion Manual
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: echo 'Esta fue una ejecucion manual'
+        
+      - name: Nombre del Actor
+        run: echo 'Actor = ${{ github.actor }}'
+

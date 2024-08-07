@@ -2,17 +2,16 @@ name: contexto
 run-name: Pipeline Contexto
 
 on:
-  push:
-    workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Razones de la Ejecucion'     
-        required: true
-        default: 'warning'
+  workflow_dispatch:
+   inputs:
+     reason:
+      description: 'Razones de la Ejecucion'     
+      required: true
+      default: 'warning'
 env:
-   actor = ${{github.actor}}
-   rama = ${{github.ref}} 
-   sha = ${{github.sha}}
+   actor: ${{github.actor}}
+   rama: ${{github.ref_name}} 
+   sha: ${{github.sha}}
 
 jobs:
 
@@ -26,10 +25,10 @@ jobs:
         run: python main.py
         
   print:
+    runs-on: ubuntu-latest
+    steps:
       - name: Imprimir Variables
-        run: echo 'Actor = {{env.actor}} \n
-                   Rama = {{env.ref}}' \n
-                   SHA = {{env.sha}}
+        run: echo 'Actor = ${{env.actor}} \n Rama = ${{env.rama}} \n SHA = ${{env.sha}}'
 
       - name: Imprimir Entradas
-        run: echo 'Razones de Ejecucion = {{input.reason}}'
+        run: echo 'Razones de Ejecucion = ${{inputs.reason}}'

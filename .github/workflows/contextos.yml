@@ -10,7 +10,7 @@ on:
       default: 'warning'
 env:
    actor: ${{github.actor}}
-   rama: ${{github.ref}} 
+   rama: ${{github.ref_name}} 
    sha: ${{github.sha}}
 
 jobs:

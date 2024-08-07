@@ -1,0 +1,37 @@
+name: variables
+run-name: Pipeline Variables
+
+on:
+  workflow_dispatch:
+   inputs:
+     reason:
+      description: 'Razones de la Ejecucion'     
+      required: true
+      default: 'warning'
+env:
+   actor: ${{github.actor}}
+   rama: ${{github.ref_name}} 
+   sha: ${{github.sha}}
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Script
+        run: python main.py
+        
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir Variables
+        run: echo 'Actor = ${{env.actor}} \n Rama = ${{env.rama}} \n SHA = ${{env.sha}}'
+
+      - name: Imprimir Entradas
+        run: echo 'Razones de Ejecucion = ${{inputs.reason}}'
+
+      - name: Imprimir Variable
+        run: echo 'El valor de la Key es = ${{vars.KEY}}'
